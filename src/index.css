@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("./assests/victor-rodriguez-5rchckwczuc-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: whitesmoke;
+  font-family: "Titillium Web", sans-serif;
+}
+#root {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+  width: 1050px;
+  height: 600px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.left {
+  width: 550px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+
+  flex-direction: column;
+}
+h3 {
+  margin-top: 25px;
+  margin-left: 50px;
+}
+.info_left {
+  width: 450px;
+  height: 490px;
+  /* background-color: rgb(47, 146, 146); */
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.city_data {
+  width: 450px;
+  height: 270px;
+  /* background-color: blue; */
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+}
+#h1{
+    /* background-color: red; */
+    width: 120px;
+    height: 120px;
+    font-size: 4em;
+    
+}
+
+
+
+
+.right {
+  width: 500px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+}
+.info_box {
+  width: 360px;
+  height: 600px;
+
+  /* background-color: rgb(163, 160, 156, 0.5); */
+  margin-left: 70px;
+}
+.search-btn {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(14, 13, 13);
+  font-size: 1.5em;
+  cursor: pointer;
+}
+input {
+  width: 335px;
+  background: transparent;
+  height: 60px;
+  margin-top: 10.5px;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: 1em;
+  font-family: "Titillium Web", sans-serif;
+  color: whitesmoke;
+  text-transform: capitalize;
+}
+input::placeholder {
+  list-style: 2;
+  color: whitesmoke;
+  font-family: "Titillium Web", sans-serif;
+}
+input:focus {
+  outline: none;
+}
+input:focus::placeholder {
+  color: transparent;
+}
+p {
+  width: 335px;
+  margin-top: 20px;
+
+  font-size: 1em;
+}
+span {
+  float: right;
+}
