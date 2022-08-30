@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  background-image: url("./assests/victor-rodriguez-5rchckwczuc-unsplash.jpg");
+  background-image: url("./assests/lode-lagrainge-OcCJ8VthsYo-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: whitesmoke;
@@ -30,7 +30,7 @@ body {
 .left {
   width: 550px;
   height: 600px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   display: flex;
 
   flex-direction: column;
@@ -41,45 +41,73 @@ h3 {
 }
 .info_left {
   width: 450px;
-  height: 490px;
-  /* background-color: rgb(47, 146, 146); */
+  height: 470px;
   margin-left: 50px;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: flex-end;
+  flex-direction: column;
 }
 
 .city_data {
+  display: flex;
   width: 450px;
-  height: 270px;
-  /* background-color: blue; */
-  margin-bottom: 25px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+#temp {
+  width: 120px;
+  height: 120px;
+  font-size: 5.2em;
+  margin-right: 20px;
+  font-family: "Raleway", sans-serif;
+}
+
+#city_name {
+  font-size: 2.3em;
+}
+.city_icon {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  width: 200px;
+}
+.actual_date_clouds {
+  display: flex;
+  justify-content: space-between;
+  width: 235px;
+}
+
+.next_days_wrapper {
   display: flex;
   flex-direction: row;
-}
-#h1{
-    /* background-color: red; */
-    width: 120px;
-    height: 120px;
-    font-size: 4em;
-    
+  width: 450px;
 }
 
-
-
+.day-box {
+  width: 64px;
+  height: 65px;
+  cursor: pointer;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
 
 .right {
   width: 500px;
   height: 600px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: row;
 }
 .info_box {
   width: 360px;
   height: 600px;
-
-  /* background-color: rgb(163, 160, 156, 0.5); */
   margin-left: 70px;
 }
 .search-btn {
@@ -109,6 +137,7 @@ input::placeholder {
   list-style: 2;
   color: whitesmoke;
   font-family: "Titillium Web", sans-serif;
+  font-weight: bold;
 }
 input:focus {
   outline: none;
@@ -124,4 +153,12 @@ p {
 }
 span {
   float: right;
+}
+
+#next-hours {
+  width: 335px;
+  margin-top: 45px;
+  border-bottom: 1px solid white;
+  padding-bottom: 12px;
+  font-weight: bold;
 }

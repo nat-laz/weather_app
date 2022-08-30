@@ -14,52 +14,64 @@ function App() {
     city: "Berlin",
   });
 
-  useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=${process.env.REACT_APP_API_KEY}&units=metric`
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.cod !== 200) {
-          alert(result.message);
-        } else {
-          console.log(result);
-          setWeather({
-            feels_like: result.main.feels_like,
-            pressure: result.main.pressure,
-            humidity: result.main.humidity,
-            temp: result.main.temp,
-            min_temp: result.main.temp_min,
-            max_temp: result.main.temp_max,
-            city: result.name,
-            wind: result.wind.speed,
-          });
-        }
-      });
-  }, []);
+  console.log(process.env.REACT_APP_API_KEY)
 
-  const getWeatherInfo = () => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.cod !== 200) {
-          alert(result.message);
-        } else {
-          console.log(result);
-          setWeather({
-            feels_like: result.main.feels_like,
-            pressure: result.main.pressure,
-            humidity: result.main.humidity,
-            temp: result.main.temp,
-            min_temp: result.main.temp_min,
-            max_temp: result.main.temp_max,
-            wind: result.wind.speed,
-          });
-        }
-      });
-  };
+const getWeatherInfo = ()=>{
+  fetch(`https://www.meteosource.com/api/v1/free/point?place_id=london&sections=all&timezone=UTC&language=en&units=metric&key=${process.env.REACT_APP_API_KEY}
+  `)
+     .then((response) => response.json())
+     .then((result) => console.log(result))
+}
+useEffect(()=>{getWeatherInfo()},[])
+  // useEffect(() => {
+  //   fetch(
+  //     `https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       if (result.cod !== 200) {
+  //         alert(result.message);
+  //       } else {
+  //         console.log(result);
+  //         setWeather({
+  //           feels_like: result.main.feels_like,
+  //           pressure: result.main.pressure,
+  //           humidity: result.main.humidity,
+  //           temp: result.main.temp,
+  //           min_temp: result.main.temp_min,
+  //           max_temp: result.main.temp_max,
+  //           city: result.name,
+  //           wind: result.wind.speed,
+  //         });
+  //       }
+  //     });
+  // }, []);
+
+
+
+  // const getWeatherInfo = () => {
+  //   fetch(
+  //     `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       if (result.cod !== 200) {
+  //         alert(result.message);
+  //       } else {
+  //         console.log(result);
+  //         setWeather({
+  //           feels_like: result.main.feels_like,
+  //           pressure: result.main.pressure,
+  //           humidity: result.main.humidity,
+  //           temp: result.main.temp,
+  //           min_temp: result.main.temp_min,
+  //           max_temp: result.main.temp_max,
+  //           wind: result.wind.speed,
+  //           city: result.name,
+  //         });
+  //       }
+  //     });
+  // };
 
   return (
     <>
@@ -68,8 +80,28 @@ function App() {
           <h3>Weather App</h3>
           <div className="info_left">
             <div className="city_data">
-              <div id="h1">{Math.floor(weather.temp)}°</div>
-              <h2>{weather.city}</h2>
+              <div id="temp">{Math.floor(weather.temp)}°</div>
+              <div>
+                <div className="city_icon">
+                  <h2 id="city_name">{weather.city}</h2>
+                  <div className="wether-icon">icon</div>
+                </div>
+
+                <div className="actual_date_clouds">
+                  <h5>9:30 - Friday, 27 May '22</h5>
+                  <h5>partly cloudy</h5>
+                </div>
+              </div>
+            </div>
+
+            <div className="next_days_wrapper">
+              <div className="day-box border">may 28</div>
+              <div className="day-box border">may 29</div>
+              <div className="day-box border">may 30</div>
+              <div className="day-box border">may 31</div>
+              <div className="day-box border">jun 01</div>
+              <div className="day-box border">jun 02</div>
+              <div className="day-box">jun 03</div>
             </div>
           </div>
         </div>
@@ -93,44 +125,26 @@ function App() {
             <p>
               Wind <span>{Math.round(weather.wind)}km/h</span>
             </p>
+            <p id="next-hours">Next Hours</p>
+            <p>
+              10am <span>30°</span>
+            </p>
+            <p>
+              10am <span>30°</span>
+            </p>
+            <p>
+              10am <span>30°</span>
+            </p>
+            <p>
+              10am <span>30°</span>
+            </p>
           </div>
           <div className="search-btn">
             <MdSearch onClick={getWeatherInfo} />
           </div>
         </div>
       </div>
-      {/* <div ><img className="img-box"src={image} alt="" /></div>
-      <div className="card">
-        <h1>Weather App</h1>
-        <div>
-          <input type="text" onChange={(e) => setInputValue(e.target.value)} />
-          <button >get weather data</button>
-        </div>
-        
-
-      <div className="weather-container">
-          <div className="left">
-            
-           
-            <img
-              src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-              alt=""
-            />
-          </div>
-          <div className="right">
-           
-            <img
-              src="https://is4-ssl.mzstatic.com/image/thumb/Purple112/v4/d3/b9/76/d3b97619-f61d-1d6d-7bea-81fbe12fc8ea/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x600wa.png"
-              width="150"
-              alt=""
-            />
-            
-           
-            <h2>Min Temp: {weather.min_temp}</h2>
-            <h2>Max Temp: {weather.max_temp}</h2>
-          </div>
-        </div>
-        </div> */}
+     
     </>
   );
 }
