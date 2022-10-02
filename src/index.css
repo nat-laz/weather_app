@@ -81,18 +81,25 @@ h3 {
 .next_days_wrapper {
   display: flex;
   flex-direction: row;
-  width: 450px;
+  width: 28.125rem;
 }
 
 .day-box {
   width: 64px;
   height: 65px;
-  cursor: pointer;
   text-align: center;
   background: rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  
+}
+.day-box p{
+  margin-bottom: .4rem;
+}
+#day-box_temp{
+  margin-bottom: 1.3rem;
 }
 .border {
   border-right: 1px solid rgba(255, 255, 255, 0.3);

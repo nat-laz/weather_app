@@ -1,16 +1,16 @@
 import { useContext } from "react";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 import LeftCont from "./components/LeftCont";
 import RightCont from "./components/RightCont";
 import { AppContext } from "./context/AppContext";
 
 function App() {
-  const { getCityCoord, weatherDetails } = useContext(AppContext);
+  const { weatherDetails } = useContext(AppContext);
   // const [inputValue, setInputValue] = useState("");
   const [city, setCity] = useState("Berlin");
-  const [hourlyForecast, setHourlyForecast] = useState([]);
-  const [nextHours, setNextHours] = useState([]);
+  // const [hourlyForecast, setHourlyForecast] = useState([]);
+  // const [nextHours, setNextHours] = useState([]);
   // const [weather, setWeather] = useState({
   //   feels_like: 21.17,
   //   icon: "01d",
@@ -111,7 +111,7 @@ function App() {
   //   // console.log(nextHours);
   // };
   // console.log(nextHours);
-  console.log(weatherDetails);
+  //console.log(weatherDetails);
   return (
     <div className="main-container">
       <LeftCont weatherDetails={weatherDetails} city={city} />
