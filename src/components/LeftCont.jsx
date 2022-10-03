@@ -2,12 +2,57 @@ import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { AppContext } from "../context/AppContext";
+import clearSky from "../assests/icon/clear-sky.png";
+import mainlyClear from "../assests/icon/mainly-clear.png";
+import partlyCloudly from "../assests/icon/partly-cloudly.png";
+import overcast from "../assests/icon/overcast.png";
+import fog from "../assests/icon/fog.png";
+import drizzle from "../assests/icon/drizzle.png";
+import freezingDrizzle from "../assests/icon/freezing-drizzle.png";
+import rain from "../assests/icon/rain.png";
+import freezingRain from "../assests/icon/freezing-rain.png";
+import snow from "../assests/icon/snow.png";
+import snowGrains from "../assests/icon/snow-grains.png";
+import thunderstorm from "../assests/icon/thunderstorm.png";
 
 const LeftCont = () => {
   const { weatherDetails, city } = useContext(AppContext);
   const [nextSevenDays, setNextSevenDays] = useState([]);
-
   console.log(weatherDetails);
+
+  const iconData = [
+    { id: 0, icon: clearSky },
+    { id: 1, icon: mainlyClear },
+    { id: 2, icon: partlyCloudly },
+    { id: 3, icon: overcast },
+    { id: 45, icon: fog },
+    { id: 48, icon: fog },
+    { id: 51, icon: drizzle },
+    { id: 53, icon: drizzle },
+    { id: 55, icon: drizzle },
+    { id: 56, icon: freezingDrizzle },
+    { id: 57, icon: freezingDrizzle },
+    { id: 61, icon: rain },
+    { id: 63, icon: rain },
+    { id: 65, icon: rain },
+    { id: 66, icon: freezingRain },
+    { id: 67, icon: freezingRain },
+    { id: 71, icon: snow },
+    { id: 73, icon: snow },
+    { id: 75, icon: snow },
+    { id: 77, icon: snowGrains },
+    { id: 80, icon: rain },
+    { id: 81, icon: rain },
+    { id: 82, icon: rain },
+    { id: 85, icon: snow },
+    { id: 86, icon: snow },
+    { id: 95, icon: thunderstorm },
+    { id: 96, icon: thunderstorm },
+    { id: 99, icon: thunderstorm },
+  ];
+
+// const filteredIcon = iconData.filter(icon=> icon.id === weatherDetails.current_weather.weathercode)
+// console.log(filteredIcon)
 
   const nextDaysTemp = () => {
     const arr = [];
@@ -43,7 +88,9 @@ const LeftCont = () => {
               <h2 id="city_name">
                 {city?.charAt(0).toUpperCase() + city?.slice(1)}
               </h2>
-              <div className="wether-icon">icon</div>
+              <div className="wether-icon">
+                <img src={partlyCloudly} alt="" />
+              </div>
             </div>
 
             <div className="actual_date_clouds">
@@ -51,7 +98,6 @@ const LeftCont = () => {
                 {weatherDetails.current_weather &&
                   curentDate.toString().slice(0, 15)}
               </h5>
-              <h5>partly cloudy</h5>
             </div>
           </div>
         </div>
