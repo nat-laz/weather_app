@@ -14,9 +14,11 @@ function App() {
   };
 
   return (
+    <div className="App">
     <div className="main-container">
       <LeftCont weatherDetails={weatherDetails} city={city} />
       <RightCont getWeatherInfo={getWeatherInfo} />
+    </div>
     </div>
   );
 }

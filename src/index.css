@@ -6,30 +6,32 @@
   padding: 0;
 }
 body {
-  background-image: url("./assests/lode-lagrainge-OcCJ8VthsYo-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   color: whitesmoke;
   font-family: "Titillium Web", sans-serif;
 }
-#root {
+.App {
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./assests/lode-lagrainge-OcCJ8VthsYo-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .main-container {
   display: grid;
-  grid-template-columns: 34rem  31rem; 
-  width:  67.7vw;
+  max-width: 1000px;
+  width: 67vw;
+  grid-template-columns: 54% 46%;
+
   /* height: 600px; */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .left {
-  /* width: 36vw; */
+  /* width: 55%; */
   /* height: 600px; */
   background: rgba(255, 255, 255, 0.2);
   display: flex;
@@ -37,97 +39,107 @@ body {
   flex-direction: column;
 }
 .right {
-  /* width: 31vw; */
+  /* width: 45%; */
   /* height: 600px; */
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 h3 {
   margin-top: 25px;
   margin-left: 50px;
+  width: fit-content;
 }
 .info_left {
-  width: 450px;
-  height: 470px;
-  margin-left: 50px;
+  width: 28.125rem;
+  height: 29.375rem;
+  margin-left: 3.125rem;
   display: flex;
   justify-content: flex-end;
   align-content: flex-end;
   flex-direction: column;
+  /* background-color: aqua; */
 }
 
 .city_data {
   display: flex;
-  width: 450px;
-  height: 120px;
-  margin-bottom: 20px;
+  width: 28.125rem;
+  height: 7.5rem;
+  margin-bottom: 1.25rem;
+  /* background-color: red; */
 }
 #temp {
-  width: 120px;
-  height: 120px;
-  font-size: 5.2em;
-  margin-right: 20px;
+  width: 7.5rem;
+
+  font-size: 5.2rem;
+  margin-right: 1.25rem;
   font-family: "Raleway", sans-serif;
+  /* background-color: aquamarine */
 }
 
 #city_name {
-  font-size: 2.3em;
+  font-size: 2.3rem;
+  /* background-color: antiquewhite; */
 }
 .city_icon {
   display: flex;
   justify-content: space-between;
-  margin-top: 12px;
-  width: 200px;
-  
+  margin: 0.6rem 0;
+  width: 15rem;
+  /* background-color: blue; */
 }
-.wether-icon{
+.wether-icon {
   filter: brightness(0) invert(1);
   margin-left: 2.5rem;
 }
 
-.actual_date_clouds {
-  display: flex;
-  justify-content: space-between;
-  width: 235px;
+.actual_date_clouds h5 {
+  width: fit-content;
+  margin-top: -1rem;
+  /* justify-content: space-between; */
+  /* width: 235px; */
+  /* background-color: aqua; */
 }
 
 .next_days_wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 28.125rem;
+  /* display: flex;
+  flex-direction: row; */
+  width: 29vw;
+  /* background-color: aquamarine; */
+  display: grid;
+  grid-template-columns: repeat(7, 4rem);
 }
 
 .day-box {
-  width: 64px;
-  height: 65px;
+  /* width: 4rem;  */
+  height: 4.063rem;
   text-align: center;
   background: rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
-.day-box p{
-  margin-bottom: .4rem;
+.day-box p {
+  margin-bottom: 0.4rem;
 }
-#day-box_temp{
+#day-box_temp {
   margin-bottom: 1.3rem;
 }
 .border {
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-
 .info_box {
-  width: 360px;
-  height: 600px;
-  margin-left: 70px;
+  width: 22.5rem;
+  height: 37.5rem;
+  margin-left: 3.2rem;
+  /* background-color: blue; */
 }
 .search-btn {
-  width: 70px;
-  height: 70px;
+  width: 4.5rem;
+  height: 4.2rem;
   background: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
@@ -135,18 +147,23 @@ h3 {
   color: rgb(14, 13, 13);
   font-size: 1.5em;
   cursor: pointer;
+  /* background-color: red; */
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 input {
-  width: 335px;
+  width: 19rem;
   background: transparent;
   height: 60px;
-  margin-top: 10.5px;
+  margin-top: 0.6rem;
   border: none;
   border-bottom: 1px solid white;
   font-size: 1em;
   font-family: "Titillium Web", sans-serif;
   color: whitesmoke;
   text-transform: capitalize;
+  /* background-color: red; */
 }
 input::placeholder {
   list-style: 2;
@@ -161,7 +178,7 @@ input:focus::placeholder {
   color: transparent;
 }
 p {
-  width: 335px;
+  width: 19rem;
   margin-top: 20px;
 
   font-size: 1em;
@@ -171,9 +188,101 @@ span {
 }
 
 #next-hours {
-  width: 335px;
+  width: 19rem;
   margin-top: 45px;
   border-bottom: 1px solid white;
   padding-bottom: 12px;
   font-weight: bold;
+}
+
+/* _____________________MEDIA QUERIES___________________________ */
+@media screen and (max-width: 1400px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 100%;
+    min-height: 100vh;
+    width: 44vw;
+    gap: 2rem;
+    box-shadow: none;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .left {
+    /* width: 55%; */
+    height: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info_box {
+    height: 35rem;
+    margin: 0 auto;
+    /* background-color: aquamarine; */
+  }
+  .next_days_wrapper {
+    margin-left: -1.5rem;
+    padding-bottom: 3rem;
+  }
+  .day-box {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* _____________________MEDIA QUERIES___________________________ */
+@media screen and (max-width: 1116px) {
+  .main-container {
+    min-width: 500px;
+  }
+}
+/* _____________________MEDIA QUERIES___________________________ */
+@media screen and (max-width: 600px) {
+  .main-container {
+    min-width: 400px;
+  }
+
+  /* .left{
+    background-color: aqua;
+  } */
+  #temp{
+    font-size: 3.2rem;
+    margin: 0;
+    padding-left: 2rem;
+    /* background-color: red; */
+  }
+  /* .info_left{
+    background-color: azure;
+  } */
+  /* .city_data{
+    background-color: blue;
+   
+  } */
+  .city_icon{
+    
+    width: 10rem;
+  }
+  
+  .next_days_wrapper {
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    height: 0;
+    grid-template-columns: repeat(7, 3.5rem);
+  }
+  .day-box {
+    height: 3.5rem;
+  }
+  .day-box:first-child {
+    display: none;
+  }
+  .info_box {
+    margin-left: 2rem;
+    width: 17rem;
+  }
+  .info_box p,
+  #next-hours,
+  input {
+    width: 17rem;
+  }
 }

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { AppContext } from "../context/AppContext";
-import clearSky from "../assests/icon/clear-sky.png";
 import mainlyClear from "../assests/icon/mainly-clear.png";
 import partlyCloudly from "../assests/icon/partly-cloudly.png";
 import overcast from "../assests/icon/overcast.png";
@@ -18,10 +17,10 @@ import thunderstorm from "../assests/icon/thunderstorm.png";
 const LeftCont = () => {
   const { weatherDetails, city } = useContext(AppContext);
   const [nextSevenDays, setNextSevenDays] = useState([]);
-  console.log(weatherDetails);
+  // console.log(weatherDetails);
 
   const iconData = [
-    { id: 0, icon: clearSky },
+    { id: 0, icon: mainlyClear },
     { id: 1, icon: mainlyClear },
     { id: 2, icon: partlyCloudly },
     { id: 3, icon: overcast },
@@ -51,8 +50,8 @@ const LeftCont = () => {
     { id: 99, icon: thunderstorm },
   ];
 
-// const filteredIcon = iconData.filter(icon=> icon.id === weatherDetails.current_weather.weathercode)
-// console.log(filteredIcon)
+const weatherIcon = weatherDetails.current_weather &&  iconData.find(icon=> icon.id === weatherDetails.current_weather.weathercode)
+// console.log(weatherIcon.icon)
 
   const nextDaysTemp = () => {
     const arr = [];
@@ -89,7 +88,7 @@ const LeftCont = () => {
                 {city?.charAt(0).toUpperCase() + city?.slice(1)}
               </h2>
               <div className="wether-icon">
-                <img src={partlyCloudly} alt="" />
+                <img src={ weatherDetails.current_weather && weatherIcon.icon} alt="" />
               </div>
             </div>
 
