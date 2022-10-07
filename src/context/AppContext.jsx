@@ -5,7 +5,7 @@ const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
   const [weatherDetails, setWeatherDetails] = useState({});
-  const [inputValue, setInputValue] = useState("Berlin");
+  const [inputValue, setInputValue] = useState();
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [ city, setCity] = useState("Berlin")
 
@@ -16,8 +16,7 @@ const AppContextProvider = ({ children }) => {
   }
 
   const getCityCoord = async () => {
-  //  console.log("1-Get city coordinates");
-    const url = `https://api.opencagedata.com/geocode/v1/json?q=${inputValue}&key=${key}`;
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=${key}`;
     try {
       const result = await fetch(url);
       const resJSON = await result.json();
@@ -28,20 +27,17 @@ const AppContextProvider = ({ children }) => {
   };
 
   const getCurrentWeatherInfo = ({ lat, lng }) => {
-    // console.log("2-Get weather details");
     fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat?.toFixed(2)}&longitude=${lng?.toFixed(2)}&hourly=weathercode,pressure_msl,temperature_2m,relativehumidity_2m,apparent_temperature&current_weather=true&daily=temperature_2m_max&timezone=auto`
     )
       .then((response) => response.json())
       .then((result) => {
-        // console.log(result);
         setWeatherDetails(result);
 
       });
   };
 
   useEffect(() => {
-    //console.log("UseEffect");
     getCityCoord();
   }, []);
 

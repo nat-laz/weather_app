@@ -16,8 +16,7 @@ import thunderstorm from "../assests/icon/thunderstorm.png";
 
 const LeftCont = () => {
   const { weatherDetails, city } = useContext(AppContext);
-  const [nextSevenDays, setNextSevenDays] = useState([]);
-  // console.log(weatherDetails);
+  const [nextSevenDays, setNextSevenDays] = useState([])
 
   const iconData = [
     { id: 0, icon: mainlyClear },
@@ -51,7 +50,6 @@ const LeftCont = () => {
   ];
 
 const weatherIcon = weatherDetails.current_weather &&  iconData.find(icon=> icon.id === weatherDetails.current_weather.weathercode)
-// console.log(weatherIcon.icon)
 
   const nextDaysTemp = () => {
     const arr = [];

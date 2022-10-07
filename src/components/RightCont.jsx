@@ -74,14 +74,12 @@ const RightCont = () => {
             </p>
           ))}
       </div>
-      <div className="search-btn">
-        <MdSearch
-          onClick={() => {
+      <div className="search-btn" onClick={() => {
             getCityCoord(inputValue);
             newCity();
             setInputValue("");
-          }}
-        />
+          }}>
+        <MdSearch />
       </div>
     </div>
   );
